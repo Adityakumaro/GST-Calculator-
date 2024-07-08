@@ -81,6 +81,25 @@
         <p id="result">GST Amount: $0.00</p>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+      
+      
+      
+      
+      function calculateGST() {
+        var originalAmount = parseFloat(document.getElementById("originalAmount").value);
+        var gstRate = parseFloat(document.getElementById("gstRate").value);
+      
+        if (isNaN(originalAmount) || isNaN(gstRate)) {
+          alert("Please enter valid numbers");
+          return;
+        }
+      
+        var gstAmount = (originalAmount * gstRate) / 100;
+        var totalAmount = originalAmount + gstAmount;
+      
+        document.getElementById("result").innerHTML = "GST Amount: $" + gstAmount.toFixed(2) + "<br>Total Amount: $" + totalAmount.toFixed(2);
+      }
+    </script>
 </body>
 </html>
